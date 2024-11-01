@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <title>Frontend Mentor | Mortgage repayment calculator</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <div id="header">
+    <h2 id="title">Mortgage Calculator</h2>
+    <button id="clear">Clear All</button>
+  </div>
+  <!--form section-->
+  <div id="form-div">
+      <form id="input-form">
+        <div id="principal-wrap">
+          <label for="principal" class="small-desc">Mortgage Amount</label>
+          <br>
+          <span id="principal-error" class="error"></span>
+          <div id="principal-field">
+            <span id="currency">$</span>
+            <input type="number", value="300000", id="principal", required>
+            
+          </div>
+        </div> 
+
+        <div id="term-wrap">
+          <label for="term" class="small-desc">Mortgage Term</label> 
+          <br>
+          <span id="term-error" class="error"></span>
+          <div id="term-field">
+            <input type="number", value="25", id="term", required>
+            <span id="year">years</span>
+          </div>
+          
+        </div> 
+
+        <div id="interest-wrap">
+          <label for="interest rate" class="small-desc">Interest Rate</label>
+          <br>
+          <span id="rate-error" class="error"></span>
+          <div id="interest-field">
+            <span id="percentage">%</span>
+            <input type="number", value="5.25", id="rate", required>
+          </div>
+          
+        </div>
+        <p id="mort-type" class="small-desc">Mortgage Type</p>
+        <div id="choice-section">
+          <label>
+            <span id="choice-error" class="error"></span>
+            <div id="choice-1">
+              <input type="radio" name="calc-choice" value="Repayment" required> Repayment
+            </div>
+            
+          </label>
+          <label>
+            <div id="choice-2">
+              <input type="radio" name="calc-choice" value="Interest Only"> Interest Only
+            </div>
+            
+          </label>
+          <div id="submit-button">
+            <img id="calc-logo" src="./assets/images/icon-calculator.svg" alt="calculator" width="18">
+            <button type="submit" id="calc-button"> Calculate Mortgage</button>
+          </div>
+        </div>
+      </form>
+  </div>
+    
+  </div>
+  <!--Results section-->
+  <div id="results-section">
+    <!--empty results-->
+    <div id="empty-results">
+      <img src="./assets/images/illustration-empty.svg" alt="illustration" width="200" >
+      <h2>Results shown here</h2>
+        <p id="empty-desc" class="descriptions">Complete the form and click “calculate repayments” to see what 
+          your monthly repayments would be.
+        </p>
+    </div>
+    
+    <!--calculated results-->
+    
+    <div id="calculated-results" class="hidden" >
+      <h2>Your results</h2>
+        <p id="calculated-dec" class="descriptions">
+          Your results are shown below based on the information you provided. 
+          To adjust the results, edit the form and click “calculate repayments” again.
+        </p>
+        <div id="results">
+          <P class="small-desc">Your monthly repayments</P>
+          <span id="monthly-pay"></span>
+          <hr id="line">
+          <P class="small-desc">Total you'll repay over the term</P> 
+          <span id="total-pay"></span>
+
+        </div>
+      
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
