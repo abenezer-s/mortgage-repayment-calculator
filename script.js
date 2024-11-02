@@ -2,7 +2,7 @@
 
 function getInput(form, event){
     // get use input
-
+    let error = false;
     let principal = form.elements['principal'].value;
     if (principal === ''){
         document.getElementById('principal-error').textContent = "This field is required..";
@@ -11,7 +11,7 @@ function getInput(form, event){
         field.classList.add('field-error');
         currencySym.classList.add('field-error');
         event.preventDefault();
-     
+        error = true;
     }
     
     const term = form.elements['term'].value;
@@ -22,6 +22,7 @@ function getInput(form, event){
         field.classList.add('field-error');
         year.classList.add('field-error');
         event.preventDefault();
+        error = true;
      
     }
     const rate = form.elements['rate'].value;
@@ -32,6 +33,7 @@ function getInput(form, event){
         field.classList.add('field-error');
         percentage.classList.add('field-error');
         event.preventDefault();
+        error = true;
      
     }
     const calcChoices = document.querySelectorAll('input[name="calc-choice"]');
@@ -46,6 +48,7 @@ function getInput(form, event){
     if (!selectedChoice) {
         document.getElementById('choice-error').textContent = "This field is required.";
         event.preventDefault();
+        error = true;
      
     } else {
         document.getElementById('choice-error').textContent = "";
@@ -53,6 +56,7 @@ function getInput(form, event){
     }
 
     const obj = {
+            error: error,
             principal: principal,
             term: term,
             rate:rate,
@@ -72,17 +76,13 @@ function calculateMortage(event){
     let term; 
     let rate; 
     let choice; 
-    if (userInput){
+    if (!userInput.error){
         principal = userInput.principal;
         term = userInput.term;
         rate = userInput.rate;
         choice = userInput.choice;
-        console.log('principal', principal);
-        console.log('rate', rate);
-        console.log('term', term);
     }
     else {
-        console.log("INPUT NON");
         return
     }
 
@@ -91,8 +91,7 @@ function calculateMortage(event){
     const n = term * 12;          //num of monthly  payments
     const mortgatePayment = p * ( ( r * ( (1 + r)**n) ) / ( ((1 + r)**n) - 1 ) ); // pricipal and intersrate montly payments
     let monthlyPayment = mortgatePayment.toFixed(2);
-    let totalPayment = (monthlyPayment * 12) * term
-    console.log('total', totalPayment);
+    let totalPayment = (monthlyPayment * 12) * term;
     
     if (choice !== 'Repayment'){
         const interest = totalPayment - principal;

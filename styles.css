@@ -34,9 +34,6 @@ input, textarea, select {
     display: none;
   }
 
-#main {
-    max-width: 500px;
-}
 #title {
     margin-bottom: 2%;
 }
@@ -48,6 +45,7 @@ input, textarea, select {
     border: none;
     background-color: white;
     color: #4e6e7e;
+    cursor: pointer;
 }
 #clear::after {
     content: '';
@@ -69,6 +67,7 @@ input, textarea, select {
 #principal-wrap {
     margin-top: 5%;
     margin-bottom: 5%;
+    cursor: pointer;
 }
 
 #principal-field {
@@ -79,6 +78,7 @@ input, textarea, select {
   border-width: 1px;
   align-items: center;
   overflow: hidden;
+  cursor: pointer;
   
 }
 #principal-field:hover {
@@ -189,6 +189,10 @@ input, textarea, select {
     border-width: 1px;
     align-items: center;
     overflow: hidden;
+    cursor: pointer;
+}
+#rate, #term, #principal {
+    cursor: pointer;
 }
 /*choice section*/
 #mort-type {
@@ -408,3 +412,214 @@ h2 {
 }
 /* desktop section*/
 
+@media (min-width: 800px) {
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0%;
+        padding: 0%;
+        background-color:#e3f3fd ;
+    }
+    
+    #main {
+        margin: 5%;
+        padding: 0%;
+        display: flex;
+        width: 800px;
+        height: 600px;
+        
+    }
+    #header {
+        display: flex;
+        align-items: center;
+    }
+
+    #clear {
+        position: relative;
+        top: 10px;
+        padding-left: 10%;
+    }
+    #form-div {
+        margin: 0;
+        background-color: white;
+        width: 50%;
+    }
+    
+    .small-desc {
+        font-size: small;
+    }
+    #principal-wrap {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 0%;
+        
+    }
+
+    #term-wrap, #interest-wrap {
+        display: inline-block;
+        width: 170px;
+    }
+    #percentage {
+        width: 30%;
+    }
+    #year {
+        width: 40%;
+    }
+    #term-wrap {
+        margin-left: 5%;
+        margin-right: 4%;
+    }
+    #term, #rate {
+        height: 40px;
+        width: 90px;
+    }
+    #principal {
+        height: 40px;
+        width: 350px;
+    }
+    #mort-type {
+        margin: 0;
+    }
+    #choice-section {
+        margin-top: 0%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #results-section {
+        margin: 0;
+        width: 50%;
+        
+    }
+    #choice-2, #choice-1, #principal-field, #interest-field, #term-field{
+        height: 40px;
+    }
+    #submit-button {
+        margin-top: 6%;
+        margin-bottom: 6%;
+        width: 250px;
+        height: 40px;
+    }
+
+}
+
+@media (min-width: 1000px) {
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0%;
+        padding: 0%;
+        background-color:#e3f3fd ;
+    }
+    
+    #main {
+        margin: 5%;
+        padding: 0%;
+        background-color: white;
+        display: flex;
+        width: 1000px;
+        height: 600px;
+        border-radius: 15%;
+        
+    }
+    #header {
+        display: flex;
+        align-items: center;
+    }
+
+    #clear {
+        position: relative;
+        top: 10px;
+        padding-left: 29.4%;
+    }
+    #form-div {
+        margin: 0;
+        background-color: white;
+        border-top-left-radius: 5%;
+        border-bottom-left-radius: 5%;
+        width: 50%;
+    }
+    
+    .small-desc {
+        font-size: small;
+    }
+    #principal-wrap {
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 0%;
+        
+    }
+
+    #term-wrap, #interest-wrap {
+        display: inline-block;
+        width: 210px;
+    }
+    #percentage {
+        width: 30%;
+    }
+    #year {
+        width: 40%;
+    }
+    #term-wrap {
+        margin-left: 5%;
+        margin-right: 5.5%;
+    }
+    #term, #rate {
+        height: 40px;
+        width: 90px;
+    }
+    #principal {
+        height: 40px;
+        width: 350px;
+    }
+    #mort-type {
+        margin: 0;
+    }
+    #choice-section {
+        margin-top: 0%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    #results-section {
+        margin: 0;
+        position: relative;
+        width: 50%;
+        border-top-right-radius: 5%;
+        border-bottom-left-radius: 5%;
+        border-bottom-left-radius: 15%;
+        
+    }
+    #empty-results {
+        position: absolute;
+        margin: 10%;
+        top: 60px;
+    }
+
+    #calculated-results {
+        position: absolute;
+        top: 1px;
+    }
+    #results {
+        margin-top: 10%;
+        height: 125px;
+    }
+
+    #monthly-pay {
+        font-size: xx-large;
+        font-weight: 900;
+        margin-bottom: 5%;
+    }
+    #choice-2, #choice-1, #principal-field, #interest-field, #term-field{
+        height: 40px;
+    }
+    #submit-button {
+        margin-top: 6%;
+        margin-bottom: 6%;
+        width: 250px;
+        height: 40px;
+    }
+
+}

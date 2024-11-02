@@ -17,18 +17,18 @@
   </style>
 </head>
 <body>
-  <div id="header">
-    <h2 id="title">Mortgage Calculator</h2>
-    <button id="clear">Clear All</button>
-  </div>
+  
   <div id="main">
     <!--form section-->
     <div id="form-div">
+      <div id="header">
+        <h2 id="title">Mortgage Calculator</h2>
+        <button id="clear">Clear All</button>
+      </div>
       <form id="input-form">
         <div id="principal-wrap">
           <label for="principal" class="small-desc">Mortgage Amount</label>
           <br>
-          
           <div id="principal-field">
             <span id="currency">&pound;</span>
             <input type="number", id="principal", required>
@@ -57,8 +57,9 @@
           </div>
           <span id="rate-error" class="error"></span>
         </div>
-        <p id="mort-type" class="small-desc">Mortgage Type</p>
+        
         <div id="choice-section">
+          <p id="mort-type" class="small-desc">Mortgage Type</p>
           <label>
             
             <div id="choice-1" class="choice">
@@ -81,6 +82,7 @@
         </div>
       </form>
     </div>
+
     <!--Results section-->
     <div id="results-section">
       <!--empty results-->
@@ -91,9 +93,7 @@
             your monthly repayments would be.
           </p>
       </div>
-
       <!--calculated results-->
-
       <div id="calculated-results" class="hidden" >
         <h2>Your results</h2>
           <p id="calculated-dec" class="descriptions">
