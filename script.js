@@ -5,22 +5,34 @@ function getInput(form, event){
 
     let principal = form.elements['principal'].value;
     if (principal === ''){
-        document.getElementById('principal-error').textContent = "pricipal cannot be empty.";
-        event.preventDefault()
-        return false;
+        document.getElementById('principal-error').textContent = "This field is required..";
+        field = document.getElementById('principal-field');
+        currencySym = document.getElementById('currency');
+        field.classList.add('field-error');
+        currencySym.classList.add('field-error');
+        event.preventDefault();
+     
     }
     
     const term = form.elements['term'].value;
     if (term === ''){
-        document.getElementById('term-error').textContent = "mortgage term cannot be empty.";
-        event.preventDefault()
-        return false;
+        document.getElementById('term-error').textContent = "This field is required.";
+        field = document.getElementById('term-field');
+        year = document.getElementById('year');
+        field.classList.add('field-error');
+        year.classList.add('field-error');
+        event.preventDefault();
+     
     }
     const rate = form.elements['rate'].value;
     if (rate === ''){
-        document.getElementById('rate-error').textContent = "interest rate cannot be empty.";
-        event.preventDefault()
-        return false;
+        document.getElementById('rate-error').textContent = "This field is required.";
+        field = document.getElementById('interest-field');
+        percentage = document.getElementById('percentage');
+        field.classList.add('field-error');
+        percentage.classList.add('field-error');
+        event.preventDefault();
+     
     }
     const calcChoices = document.querySelectorAll('input[name="calc-choice"]');
     let selectedChoice;
@@ -32,9 +44,12 @@ function getInput(form, event){
         }
     }
     if (!selectedChoice) {
-        document.getElementById('choice-error').textContent = "must choose atleast one from calculation options provided.";
-        event.preventDefault()
-        return false;
+        document.getElementById('choice-error').textContent = "This field is required.";
+        event.preventDefault();
+     
+    } else {
+        document.getElementById('choice-error').textContent = "";
+
     }
 
     const obj = {
@@ -67,7 +82,7 @@ function calculateMortage(event){
         console.log('term', term);
     }
     else {
-    
+        console.log("INPUT NON");
         return
     }
 
@@ -76,13 +91,13 @@ function calculateMortage(event){
     const n = term * 12;          //num of monthly  payments
     const mortgatePayment = p * ( ( r * ( (1 + r)**n) ) / ( ((1 + r)**n) - 1 ) ); // pricipal and intersrate montly payments
     let monthlyPayment = mortgatePayment.toFixed(2);
-    const totalPayment = (monthlyPayment * 12) * term
+    let totalPayment = (monthlyPayment * 12) * term
     console.log('total', totalPayment);
     
     if (choice !== 'Repayment'){
         const interest = totalPayment - principal;
-        monthlyPayment = interest.toFixed(2);
-        console.log('interest', monthlyPayment);
+        monthlyPayment = interest.toFixed(2) / n;
+        totalPayment = interest;
 
     }
     //show results
@@ -130,3 +145,35 @@ const calculateButton = document.getElementById('calc-button');
 calculateButton.addEventListener('click', calculateMortage);
 const clearButton = document.getElementById('clear');
 clearButton.addEventListener('click', clearForm);
+
+//remove error state once user starts typing again
+const principal = document.getElementById('principal-field');
+principal.addEventListener('input', function(event) {
+    principal.classList.remove('field-error');
+    const currency = document.getElementById('currency');
+    currency.classList.remove('field-error');
+    document.getElementById('principal-error').textContent = "";
+    document.getElementById('choice-error').textContent = "";
+
+});
+
+const term = document.getElementById('term-field');
+term.addEventListener('input', function(event) {
+    term.classList.remove('field-error');
+    const year = document.getElementById('year');
+    year.classList.remove('field-error');
+    document.getElementById('term-error').textContent = "";
+    document.getElementById('choice-error').textContent = "";
+
+});
+
+const interest = document.getElementById('interest-field');
+interest.addEventListener('input', function(event) {
+    interest.classList.remove('field-error');
+    const percentage = document.getElementById('percentage');
+    percentage.classList.remove('field-error');
+    document.getElementById('rate-error').textContent = "";
+    document.getElementById('choice-error').textContent = "";
+    
+
+});
