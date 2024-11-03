@@ -140,8 +140,9 @@ function clearForm(event){
 }
 
 
-const calculateButton = document.getElementById('calc-button');
-calculateButton.addEventListener('click', calculateMortage);
+
+const submitButton = document.getElementById('submit-button');
+submitButton.addEventListener('click', calculateMortage);
 const clearButton = document.getElementById('clear');
 clearButton.addEventListener('click', clearForm);
 
